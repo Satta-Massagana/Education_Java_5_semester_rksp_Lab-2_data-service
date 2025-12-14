@@ -14,4 +14,15 @@
                  stripComments="true"/>
         <comment>Создание таблицы из script1</comment>
     </changeSet>
+
+    <changeSet author="baranov" id="script2" dbms="postgresql">
+        <sqlFile dbms="postgresql"
+                 path="scripts/script2.sql"
+                 encoding="UTF-8"
+                 endDelimiter="/"
+                 relativeToChangelogFile="true"
+                 splitStatements="true"
+                 stripComments="true"/>
+        <comment>Создание таблицы UserEvent из script2</comment>
+    </changeSet>
 </databaseChangeLog>

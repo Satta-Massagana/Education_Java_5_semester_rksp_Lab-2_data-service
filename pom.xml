@@ -147,7 +147,6 @@
                             <output>${project.build.directory}/generated-sources/openapi</output>
                             <apiPackage>ru.baranov.data.api</apiPackage>
                             <modelPackage>ru.baranov.data.model</modelPackage>
-                            <basePackage>ru.baranov.data</basePackage>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <useJakartaEe>true</useJakartaEe>
@@ -155,6 +154,26 @@
                                 <useTags>true</useTags>
                                 <library>spring-boot</library>
                                 <generateSpringApplication>false</generateSpringApplication>
+                            </configOptions>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>generate-user-events-api</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <inputSpec>${project.basedir}/src/main/resources/openapi-user-events.yaml</inputSpec>
+                            <generatorName>spring</generatorName>
+                            <output>${project.build.directory}/generated-sources/openapi-user-events</output>
+                            <apiPackage>ru.baranov.user.api</apiPackage>
+                            <modelPackage>ru.baranov.user.model</modelPackage>
+                            <configOptions>
+                                <interfaceOnly>true</interfaceOnly>
+                                <useJakartaEe>true</useJakartaEe>
+                                <dateLibrary>java8</dateLibrary>
+                                <library>spring-boot</library>
                             </configOptions>
                         </configuration>
                     </execution>
@@ -176,6 +195,7 @@
                         <configuration>
                             <sources>
                                 <source>${project.build.directory}/generated-sources/openapi/src/main/java</source>
+                                <source>${project.build.directory}/generated-sources/openapi-user-events/src/main/java</source>
                             </sources>
                         </configuration>
                     </execution>
